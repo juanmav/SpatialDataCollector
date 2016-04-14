@@ -92,6 +92,17 @@ app.controller('DatasourceMapCtrl', function ($scope, $routeParams, DatasourcesS
     position: 'bottomleft',
     colors: [ '#ff0000'],
     labels: [ 'Records' ]
+  };
+
+  $scope.layers = {
+    position: 'bottomleft',
+    baselayers: {
+      osm: {
+        name: 'OpenStreetMap',
+        url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        type: 'xyz'
+      }
+    }
   }
 
 });
