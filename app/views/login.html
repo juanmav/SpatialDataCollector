@@ -1,0 +1,26 @@
+<div layout="column" style="height: 100%">
+  <form name="loginForm" style="width: 90%; margin: auto;">
+    <img src="images/SANSA_Master.jpg"
+         style="width: 100%;margin-left: auto; margin-right: auto; display: block;">
+    <div layout="column" style="width: 95%; margin: auto; padding-top: 2rem;">
+      <md-input-container class="md-block">
+        <label>Username</label>
+        <input required name="username" ng-model="user.username">
+        <div ng-messages="loginForm.description.$error">
+          <div ng-message="required">This is required.</div>
+          <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
+        </div>
+      </md-input-container>
+      <md-input-container class="md-block">
+        <label>Password</label>
+        <input required type="password" name="password" ng-model="user.password">
+        <div ng-messages="loginForm.password.$error">
+          <div ng-message="required">This is required.</div>
+        </div>
+      </md-input-container>
+    </div>
+    <div layout="column">
+      <md-button ng-click="login()" class="md-raised md-primary">Login</md-button>
+    </div>
+  </form>
+</div>

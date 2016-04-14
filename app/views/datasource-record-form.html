@@ -1,0 +1,21 @@
+<div layout="column" style="height: 100%">
+  <md-toolbar style="position: absolute">
+    <div class="md-toolbar-tools">
+      <md-button class="md-icon-button" aria-label="Settings">
+        <md-icon md-svg-icon="keyboard-backspace" ng-click="cancel()"></md-icon>
+      </md-button>
+      <h2>
+        <span>Create Record</span>
+      </h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="save()" aria-label="save">
+        <md-icon md-svg-icon="check"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <div style="height: 56px;"></div>
+  <md-content layout="column" style="height: calc(100% - 56px);" class="md-padding">
+    <form sf-schema="schema" sf-form="form" sf-model="record.value"></form>
+  </md-content>
+  <pre>{{record | json}}</pre>
+</div>

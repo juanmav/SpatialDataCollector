@@ -1,0 +1,81 @@
+<div layout="column" style="height: 100%">
+  <md-button ng-show="!selectedRecord" class="md-fab md-warn" style="position: absolute; top: 80%; right: 10%;">
+    <md-icon md-svg-icon="plus" ng-click="add()"></md-icon>
+  </md-button>
+  <md-fab-speed-dial ng-show="selectedRecord" md-open="fab.open" ng-class="md-fling" md-direction="up" style="position: absolute; top: 75%; right: 10%;">
+    <md-fab-trigger>
+      <md-button aria-label="menu" class="md-fab md-warn" ng-click="edit()">
+        <md-icon md-svg-icon="pencil" ></md-icon>
+      </md-button>
+    </md-fab-trigger>
+    <md-fab-actions>
+      <md-button aria-label="Twitter" ng-click="remove()" class="md-fab md-raised md-mini">
+        <md-icon md-svg-src="delete"></md-icon>
+      </md-button>
+    </md-fab-actions>
+  </md-fab-speed-dial>
+
+  <md-toolbar style="position: absolute">
+    <div class="md-toolbar-tools">
+      <md-button class="md-icon-button" aria-label="Settings">
+        <md-icon md-svg-icon="menu" ng-click="openMainMenu()"></md-icon>
+      </md-button>
+      <h2 ng-hide="enableFind" style="width: 100%">
+        <span>Records - {{datasource.name | limitTo:15}}</span>
+      </h2>
+
+      <input ng-hide="!enableFind" ng-model="filter"
+             style= "border: 0;
+                   height: 36px;
+                   width: 100%;
+                   outline: none;
+                   background-color: #f2f2f2;
+                   -moz-border-radius: 5px;
+                   -webkit-border-radius: 5px;
+                   border-radius: 5px;
+                   color:grey;
+                   outline: none;">
+
+      <md-button class="md-icon-button" ng-hide="enableFind || !enableMap" aria-label="More" ng-click="map()">
+        <md-icon md-svg-icon="earth"></md-icon>
+      </md-button>
+
+      <md-button class="md-icon-button" ng-hide="enableFind" aria-label="More" ng-click="find()">
+        <md-icon md-svg-icon="magnify"></md-icon>
+      </md-button>
+
+      <md-button class="md-icon-button"ng-hide="!enableFind"  aria-label="More" ng-click="cancelFind()">
+        <md-icon md-svg-icon="close"></md-icon>
+      </md-button>
+
+    </div>
+  </md-toolbar>
+  <div style="height: 56px;"></div>
+  <md-content layout="column" style="height: 100%">
+    <md-list flex>
+      <md-list-item class="md-3-line" ng-repeat="record in records | filter:filter" ng-click="select(record)">
+        <md-checkbox aria-label="checkbox" ng-checked="record === selectedRecord">
+        </md-checkbox>
+        <div class="md-list-item-text" layout="column">
+          <h3>{{ record.value | recordFilter:0: schema }}</h3>
+          <p>{{ record.value | recordFilter:1: schema }}</p>
+        </div>
+      </md-list-item>
+    </md-list>
+  </md-content>
+
+  <md-sidenav
+    class="md-sidenav-left"
+    md-component-id="left"
+    md-whiteframe="12">
+    <md-toolbar class="md-theme-indigo">
+      <h1 class="md-toolbar-tools">Sidenav Left</h1>
+    </md-toolbar>
+    <md-content layout-padding>
+      <p>
+        This sidenav is locked open on your device. To go back to the default behavior,
+        narrow your display.
+      </p>
+    </md-content>
+  </md-sidenav>
+</div>

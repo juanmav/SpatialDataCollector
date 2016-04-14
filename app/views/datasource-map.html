@@ -1,0 +1,24 @@
+<div style="width: 100%; height: 100%">
+  <md-toolbar style="position: absolute">
+    <div class="md-toolbar-tools">
+      <md-button class="md-icon-button" aria-label="Settings">
+        <md-icon md-svg-icon="menu" ng-click="openMainMenu()"></md-icon>
+      </md-button>
+      <h2>
+        <span>Map - {{datasource.name}}</span>
+      </h2>
+      <span flex></span>
+      <md-button class="md-icon-button" aria-label="More">
+        <md-icon md-svg-icon="magnify"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+
+  <!--geojson="leafLeatGeoJson"-->
+  <leaflet
+    markers="markers"
+    center="osloCenter"
+    legend="legend"
+    defaults="defaults"
+    style="width: 100%; height: 100%;"></leaflet>
+</div>

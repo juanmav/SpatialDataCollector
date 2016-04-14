@@ -1,0 +1,11 @@
+{
+  "name": "SuriMovilNG",
+  "app_id": "",
+
+  "proxies": [
+      {
+        "path": "/datasources",
+        "proxyUrl": "http://suring-i.suremptec.com.ar/gis/rest/1.0/datasources"
+      }
+  ]
+}

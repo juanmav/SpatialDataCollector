@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title></title>
+
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+  <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+  <link href="styles/style.css" rel="stylesheet">
+
+  <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+  <link href="styles/ionic.app.css" rel="stylesheet">
+  -->
+
+  <script src="http://api.tiles.mapbox.com/mapbox.js/plugins/turf/v2.0.0/turf.min.js"></script>
+
+  <!-- ionic/angularjs js -->
+  <!-- build:js scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/ngCordova/dist/ng-cordova.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-aria/angular-aria.js"></script>
+  <script src="bower_components/angular-messages/angular-messages.js"></script>
+  <script src="bower_components/angular-material/angular-material.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/lodash/lodash.js"></script>
+  <script src="bower_components/restangular/dist/restangular.js"></script>
+  <script src="bower_components/angular-utf8-base64/angular-utf8-base64.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="bower_components/tv4/tv4.js"></script>
+  <script src="bower_components/objectpath/lib/ObjectPath.js"></script>
+  <script src="bower_components/angular-schema-form/dist/schema-form.js"></script>
+  <script src="bower_components/angular-schema-form-material/material-decorator.js"></script>
+  <script src="bower_components/leaflet/dist/leaflet-src.js"></script>
+  <script src="bower_components/angular-leaflet-directive/dist/angular-leaflet-directive.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- cordova script (this will be a 404 during development) -->
+  <script src="cordova.js"></script>
+
+  <!-- your app's js -->
+  <!-- build:js scripts/scripts.js -->
+  <script src="scripts/app.js"></script>
+  <script src="scripts/configuration.js"></script>
+  <script src="scripts/controllers/login.js"></script>
+  <script src="scripts/controllers/workspace.js"></script>
+  <script src="scripts/controllers/datasources.js"></script>
+  <script src="scripts/services/datasources-service.js"></script>
+  <script src="scripts/controllers/datasource-records.js"></script>
+  <script src="scripts/controllers/datasource-record-form.js"></script>
+  <script src="scripts/services/records-service.js"></script>
+  <script src="scripts/services/sng-form-decorator.js"></script>
+  <script src="scripts/directives/sng-point.js"></script>
+  <script src="scripts/directives/sng-image.js"></script>
+  <script src="scripts/controllers/datasource-map.js"></script>
+  <script src="scripts/filters/recordfilter.js"></script>
+  <!-- endbuild -->
+
+  <!-- adasdasdasdadsasdasdasddas-->
+</head>
+<body ng-app="suriMovilNgApp">
+<ng-view>
+
+</ng-view>
+</body>
+</html>

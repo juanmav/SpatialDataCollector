@@ -1,0 +1,45 @@
+<div layout="column" style="height: 100%">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <md-button class="md-icon-button" aria-label="Settings">
+        <md-icon md-svg-icon="menu" ng-click="openMainMenu()"></md-icon>
+      </md-button>
+      <h2>
+        <span>DataSources</span>
+      </h2>
+      <span flex></span>
+      <md-button class="md-icon-button" aria-label="More">
+        <md-icon md-svg-icon="magnify"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <div layout="column" style="height: 100%">
+    <md-list flex>
+      <md-list-item class="md-3-line" ng-repeat="datasource in datasources" ng-click="viewRecords(datasource)">
+        <md-button class="md-fab" ng-disabled="true">
+          <md-icon md-svg-src="map" >
+          </md-icon>
+        </md-button>
+        <div class="md-list-item-text" layout="column">
+          <h3>{{ datasource.name }}</h3>
+          <p>{{ datasource.description }}</p>
+        </div>
+      </md-list-item>
+    </md-list>
+  </div>
+
+  <md-sidenav
+    class="md-sidenav-left"
+    md-component-id="left"
+    md-whiteframe="12">
+    <md-toolbar class="md-theme-indigo">
+      <h1 class="md-toolbar-tools">Sidenav Left</h1>
+    </md-toolbar>
+    <md-content layout-padding>
+      <p>
+        This sidenav is locked open on your device. To go back to the default behavior,
+        narrow your display.
+      </p>
+    </md-content>
+  </md-sidenav>
+</div>

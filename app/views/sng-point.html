@@ -1,0 +1,16 @@
+<!-- El html de este archivo hay que copiarlo en sng-form-decorator dentro del $templateCache.put -->
+<div layout="row" layout-align="space-between center">
+  <div layout="column" style="width: 100%">
+    <md-input-container>
+      <label>Latitude</label>
+      <input ng-model="ngModel.latitude" type="number">
+    </md-input-container>
+    <md-input-container>
+      <label>Longitude</label>
+      <input ng-model="ngModel.longitude" type="number">
+    </md-input-container>
+  </div>
+  <md-button aria-label="getLocation" class="md-raised md-primary location" style="height: 150px;">
+    <md-icon md-svg-icon="map-marker" ng-click="capture($scope)"></md-icon>
+  </md-button>
+</div>
