@@ -45,6 +45,7 @@ app.controller('DatasourceRecordsCtrl', function ($scope, $routeParams, Datasour
     $location.path('/datasources/' + $scope.datasourceId + '/record/' + $scope.selectedRecord.id);
   };
 
+  // TODO poner dialogo no confirm.
   $scope.remove = function(){
     var confirm = $mdDialog.confirm()
       .title('Eliminacion')
@@ -55,6 +56,7 @@ app.controller('DatasourceRecordsCtrl', function ($scope, $routeParams, Datasour
     $mdDialog.show(confirm).then($scope.selectedRecord.remove, function() {
     }).then(function(){
       $scope.selectedRecord = null;
+      console.log('asdasd');
       getList();
     });
   };

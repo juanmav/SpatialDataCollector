@@ -101,6 +101,31 @@ app.controller('DatasourceMapCtrl', function ($scope, $routeParams, DatasourcesS
         name: 'OpenStreetMap',
         url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
         type: 'xyz'
+      },
+      ing: {
+        name : 'Ign Map',
+        url: 'http://wms.ign.gob.ar/geoserver/wms?',
+        type: 'wms',
+        layerParams: {
+          layers: 'capabaseargenmap'
+        }
+      },
+      geo: {
+        name: 'OpenCycleMap',
+        url: 'http://a.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png',
+        type: 'xyz'
+      }//*/
+    },
+    overlays : {
+      geo: {
+        name: 'OpenCycleMap',
+        url: 'http://a.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png',
+        type: 'xyz'
+      },
+      offline:{
+        name: 'offline',
+        url : '/images/map/{z}/{x}/{y}.png',
+        type: 'xyz'
       }
     }
   }
