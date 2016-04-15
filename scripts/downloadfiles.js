@@ -53,15 +53,17 @@ tiles.forEach(function(tile, idx){
   })
 });
 
-tiles.forEach(function(tile, idx) {
-  let tileurl = 'http://c.tile.openstreetmap.org/' + tile.z +'/' + tile.x + '/' + tile.y + '.png';
-  let dest = './mapa/' + tile.z +'/' + tile.x + '/' + tile.y + '.png';
+p.then(function(){
+  tiles.forEach(function(tile, idx) {
+    let tileurl = 'http://c.tile.openstreetmap.org/' + tile.z +'/' + tile.x + '/' + tile.y + '.png';
+    let dest = './mapa/' + tile.z +'/' + tile.x + '/' + tile.y + '.png';
 
-  request.get(tileurl)
-    .on('error', function(err){
-      console.log(err);
-    }) // del request
-    .pipe(fs.createWriteStream(dest))
+    request.get(tileurl)
+      .on('error', function(err){
+        console.log(err);
+      }) // del request
+      .pipe(fs.createWriteStream(dest))
 
+  });//*/
 
-});//*/
+});
