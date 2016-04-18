@@ -4,26 +4,54 @@
       <md-button class="md-icon-button" aria-label="Settings">
         <md-icon md-svg-icon="menu" ng-click="openMainMenu()"></md-icon>
       </md-button>
-      <h2>
+      <h2 ng-hide="enableFind" style="width: 100%">
         <span>DataSources</span>
       </h2>
       <span flex></span>
-      <md-button class="md-icon-button" aria-label="More">
+
+      <input ng-hide="!enableFind" ng-model="filter"
+             style= "border: 0;
+                   height: 36px;
+                   width: 100%;
+                   outline: none;
+                   background-color: #f2f2f2;
+                   -moz-border-radius: 5px;
+                   -webkit-border-radius: 5px;
+                   border-radius: 5px;
+                   color:grey;
+                   outline: none;">
+
+      <md-button class="md-icon-button" ng-hide="enableFind || !enableMap" aria-label="More" ng-click="map(selectedDatasource)">
+        <md-icon md-svg-icon="earth"></md-icon>
+      </md-button>
+
+      <md-button class="md-icon-button" ng-hide="enableFind || !enableRecords" aria-label="More" ng-click="viewRecords(selectedDatasource)">
+        <md-icon md-svg-icon="view-list"></md-icon>
+      </md-button>
+
+      <md-button class="md-icon-button" ng-hide="enableFind" aria-label="More" ng-click="find()">
         <md-icon md-svg-icon="magnify"></md-icon>
+      </md-button>
+
+      <md-button class="md-icon-button"ng-hide="!enableFind"  aria-label="More" ng-click="cancelFind()">
+        <md-icon md-svg-icon="close"></md-icon>
       </md-button>
     </div>
   </md-toolbar>
   <div layout="column" style="height: 100%">
     <md-list flex>
-      <md-list-item class="md-3-line" ng-repeat="datasource in datasources" ng-click="viewRecords(datasource)">
-        <md-button class="md-fab" ng-disabled="true">
-          <md-icon md-svg-src="map" >
-          </md-icon>
-        </md-button>
+      <md-list-item class="md-3-line" ng-repeat="datasource in datasources | filter:filter" ng-click="select(datasource)">
+        <md-checkbox aria-label="checkbox" ng-checked="datasource === selectedDatasource">
+        </md-checkbox>
         <div class="md-list-item-text" layout="column">
-          <h3>{{ datasource.name }}</h3>
+
+          <h3>
+            <md-icon md-svg-icon="vector-polygon" ng-show="datasource.schema.properties.the_geom"></md-icon>
+            <md-icon md-svg-icon="table-large" ng-show="!datasource.schema.properties.the_geom"></md-icon>
+            {{ datasource.name }}</h3>
           <p>{{ datasource.description }}</p>
         </div>
+
       </md-list-item>
     </md-list>
   </div>
