@@ -13,12 +13,14 @@ app.controller('DatasourceRecordFormCtrl', function ($scope, $routeParams, Datas
   $scope.datasourceId = $routeParams.datasourceId;
   $scope.recordId = $routeParams.id;
   $scope.schema = {};
+  $scope.form = ["*"];
   $scope.record = {};
 
   DatasourcesService.one($scope.datasourceId).get().then(function(datasource){
     //console.log(datasource);
     $scope.datasource = datasource;
     $scope.schema = datasource.schema;
+    $scope.form = datasource.form;
   });
 
   if ($scope.recordId > -1){ // Es edicion
@@ -107,8 +109,6 @@ app.controller('DatasourceRecordFormCtrl', function ($scope, $routeParams, Datas
     "required": []
   };*/
 
-  $scope.form = [
-    "*"
-  ];
+
 
 });
