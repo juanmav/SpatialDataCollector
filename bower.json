@@ -10,7 +10,7 @@
     "angular-utf8-base64": "0.0.5",
     "bootstrap": "~3.3.6",
     "angular-schema-form": "~0.8.13",
-    "angular-schema-form-material": "develop",
+    "angular-schema-form-material": "v1.0.0-alpha.1",
     "angular-leaflet-directive": "~0.10.0"
   },
   "devDependencies": {
