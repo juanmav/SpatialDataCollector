@@ -46,7 +46,7 @@ var tiles = getTileList(-34.59042,-58.4833967,-34.6006649,-58.4671747,6,16);
 var p = Promise.resolve(0);
 
 tiles.forEach(function(tile, idx){
-  let path = './mapa/' + tile.z +'/' + tile.x + '/';
+  let path = './map/' + tile.z +'/' + tile.x + '/';
   p = p.then(function() {
     console.log(path);
     return mkdirp(path);
@@ -56,7 +56,7 @@ tiles.forEach(function(tile, idx){
 p.then(function(){
   tiles.forEach(function(tile, idx) {
     let tileurl = 'http://c.tile.openstreetmap.org/' + tile.z +'/' + tile.x + '/' + tile.y + '.png';
-    let dest = './mapa/' + tile.z +'/' + tile.x + '/' + tile.y + '.png';
+    let dest = './map/' + tile.z +'/' + tile.x + '/' + tile.y + '.png';
 
     request.get(tileurl)
       .on('error', function(err){

@@ -19,7 +19,6 @@ app.directive('sngPoint', function () {
   };
 });
 
-var app = angular.module('suriMovilNgApp');
 app.controller('SngPointCtrl', function ($scope, $cordovaGeolocation) {
 
   $scope.capture = function(){
@@ -29,7 +28,7 @@ app.controller('SngPointCtrl', function ($scope, $cordovaGeolocation) {
   $cordovaGeolocation.watchPosition({ timeout : 3000, enableHighAccuracy: false}).then(
     null,
     function(err) {
-      // error
+      console.log(err);
     },
     function(position) {
       console.log(position);

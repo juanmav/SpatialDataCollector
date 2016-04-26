@@ -14,15 +14,11 @@ app.controller('DatasourceRecordsCtrl', function ($scope, $routeParams, Datasour
   DatasourcesService.one($scope.datasourceId).get().then(function(datasource){
     $scope.datasource = datasource;
     $scope.schema = datasource.schema;
-
     $scope.enableMap = datasource.schema.properties.the_geom ? true: false;
-
-    console.log($scope.datasource);
   });
 
   function getList(){
     DatasourcesService.one($scope.datasourceId).getList('records').then(function(records){
-      console.log(records);
       $scope.records = records;
     });
   }

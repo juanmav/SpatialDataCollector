@@ -109,19 +109,9 @@ app.controller('DatasourceMapCtrl', function ($scope, $routeParams, DatasourcesS
         layerParams: {
           layers: 'capabaseargenmap'
         }
-      },
-      geo: {
-        name: 'OpenCycleMap',
-        url: 'http://a.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png',
-        type: 'xyz'
       }//*/
     },
     overlays : {
-      geo: {
-        name: 'OpenCycleMap',
-        url: 'http://a.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png',
-        type: 'xyz'
-      },
       offline:{
         name: 'offline',
         url : '/images/map/{z}/{x}/{y}.png',

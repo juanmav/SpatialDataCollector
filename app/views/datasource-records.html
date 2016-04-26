@@ -1,5 +1,5 @@
 <div layout="column" style="height: 100%">
-  <md-button ng-show="!selectedRecord" class="md-fab md-warn" style="position: absolute; top: 80%; right: 10%;">
+  <md-button ng-show="!selectedRecord" aria-label="Add Record" class="md-fab md-warn" style="position: absolute; top: 80%; right: 10%;">
     <md-icon md-svg-icon="plus" ng-click="add()"></md-icon>
   </md-button>
   <md-fab-speed-dial ng-show="selectedRecord" md-open="fab.open" ng-class="md-fling" md-direction="up" style="position: absolute; top: 75%; right: 10%;">
