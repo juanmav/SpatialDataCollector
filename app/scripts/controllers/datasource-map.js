@@ -114,7 +114,7 @@ app.controller('DatasourceMapCtrl', function ($scope, $routeParams, DatasourcesS
     overlays : {
       offline:{
         name: 'offline',
-        url : '/images/map/{z}/{x}/{y}.png',
+        url : './images/map/{z}/{x}/{y}.png',
         type: 'xyz'
       }
     }

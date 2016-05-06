@@ -30,7 +30,7 @@ function getTileList(lat_min, lng_min, lat_max, lng_max, zoom_min, zoom_max) {
 
     for (var tx = txmin; tx <= txmax; tx++ ) {
       for (var ty = tymin; ty <= tymax; ty++){
-        console.log('x: ', tx, 'y: ',  ty, 'z: ',  zoom);
+        //console.log('x: ', tx, 'y: ',  ty, 'z: ',  zoom);
         tiles.push({'x': tx, 'y': ty, 'z': zoom });
       }
     }
@@ -41,7 +41,7 @@ function getTileList(lat_min, lng_min, lat_max, lng_max, zoom_min, zoom_max) {
 // -34.59042,-58.4833967
 // -34.6006649,-58.4671747
 
-var tiles = getTileList(-34.59042,-58.4833967,-34.6006649,-58.4671747,6,16);
+var tiles = getTileList(-34.51,-58.55,-34.70,-58.34,17,17);
 
 var p = Promise.resolve(0);
 
@@ -51,19 +51,39 @@ tiles.forEach(function(tile, idx){
     console.log(path);
     return mkdirp(path);
   })
-});
+});//*/
 
+
+function* tileIt(it){
+  yield* it;
+}
+
+// https://gist.github.com/tmcw/4954720
 p.then(function(){
-  tiles.forEach(function(tile, idx) {
-    let tileurl = 'http://c.tile.openstreetmap.org/' + tile.z +'/' + tile.x + '/' + tile.y + '.png';
+
+  var iterator = tileIt(tiles);
+
+  downloadTile(iterator.next().value);
+
+  function downloadTile(tile){
+    console.log(tile);
+    let tmsy = Math.pow(2, tile.z) - tile.y - 1;
+    let tileurl = 'https://tiles1.usig.buenosaires.gob.ar/mapcache/tms/1.0.0/fotografias_aereas_1940_caba_3857@GoogleMapsCompatible/' + tile.z +'/' + tile.x + '/' + tmsy + '.png';
+
     let dest = './map/' + tile.z +'/' + tile.x + '/' + tile.y + '.png';
 
-    request.get(tileurl)
+    request.get(tileurl, {timeout: 10000})
       .on('error', function(err){
         console.log(err);
       }) // del request
       .pipe(fs.createWriteStream(dest))
+      .on('finish',function(){
+        let aux = iterator.next();
+        if (aux.done == false)
+          downloadTile(aux.value);
+      });
+  }
 
-  });//*/
 
 });
+
